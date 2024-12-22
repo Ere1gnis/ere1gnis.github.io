@@ -9,7 +9,7 @@ VitePress provides Syntax Highlighting powered by [Shiki](https://github.com/shi
 **Input**
 
 ````md
-```js{4}
+​```js{4}
 export default {
   data () {
     return {
@@ -22,7 +22,7 @@ export default {
 
 **Output**
 
-```js{4}
+​```js{4}
 export default {
   data () {
     return {
@@ -61,7 +61,7 @@ This is a details block.
 **Output**
 
 ::: info
-This is an info box.
+让我测试一下
 :::
 
 ::: tip
