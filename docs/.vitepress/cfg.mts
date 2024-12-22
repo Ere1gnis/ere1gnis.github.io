@@ -5,7 +5,7 @@ export default defineConfig({
   title: "54321",
   description: "A VitePress Site",
   themeConfig: {
-    // 导航栏配置
+    // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
       { text: '文章', link: '/posts/' },
