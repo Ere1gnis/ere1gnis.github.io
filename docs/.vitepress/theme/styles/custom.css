@@ -1,0 +1,355 @@
+@font-face {
+  font-family: 'CustomFont';
+  src: url('/a.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'DefaultFont';
+  src: url('/b.ttf') format('truetype');
+}
+
+/* 设置默认字体为 b.ttf */
+body {
+  font-family: 'DefaultFont', sans-serif;
+}
+
+:root {
+  /* 主色调 - 柔和的灰蓝色 */
+  --vp-c-brand: #A8B7C5;
+  --vp-c-brand-light: #C5D3E0;
+  --vp-c-brand-lighter: #E0E7EE;
+  --vp-c-brand-dark: #8A9CAD;
+  --vp-c-brand-darker: #6C8096;
+
+  /* 背景色 */
+  --vp-c-bg: #FFFFFF;
+  --vp-c-bg-soft: #F8F9FB;
+  --vp-c-bg-mute: #F0F2F5;
+
+  /* 文字颜色 */
+  --vp-c-text-1: #4A5568;
+  --vp-c-text-2: #718096;
+  --vp-c-text-3: #A0AEC0;
+
+  /* 导航栏颜色 */
+  --vp-nav-bg-color: rgba(168, 183, 197, 0.9);
+}
+
+/* 暗色主题 */
+.dark {
+  --vp-c-bg: #1A1A1A;
+  --vp-c-bg-soft: #242424;
+  --vp-c-bg-mute: #2F2F2F;
+  
+  --vp-c-text-1: #E0E0E0;
+  --vp-c-text-2: #AAAAAA;
+  --vp-c-text-3: #808080;
+
+  --vp-nav-bg-color: rgba(42, 48, 56, 0.9);
+}
+
+/* 导航栏布局调整 */
+.VPNavBar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100vw !important;
+  min-width: 100vw !important;
+  height: 64px !important;
+  background: var(--vp-nav-bg-color) !important;
+  backdrop-filter: blur(10px) !important;
+  border: none !important;
+  z-index: 100 !important;
+}
+
+.VPNavBarContent {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 32px !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* 左侧导航菜单 */
+.VPNavBarMenu {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'CustomFont', sans-serif;
+}
+
+.VPNavBarMenuLink {
+  height: 100%;
+  padding: 0 12px;
+  color: var(--vp-c-text-1);
+  font-size: 14px;
+  transition: color 0.25s;
+  display: flex;
+  align-items: center;
+}
+
+.VPNavBarMenuLink:hover,
+.VPNavBarMenuLink.active {
+  color: #FFFFFF !important;
+}
+
+/* 右侧工具栏 */
+.nav-tools {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 搜索框样式 */
+.DocSearch-Button {
+  margin: 0 !important;
+  padding: 0 10px !important;
+  height: 32px !important;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 6px !important;
+  color: var(--vp-c-text-2) !important;
+}
+
+.DocSearch-Button:hover {
+  border-color: var(--vp-c-brand) !important;
+  color: var(--vp-c-text-1) !important;
+}
+
+.DocSearch-Button-Keys {
+  display: none !important;
+}
+
+.DocSearch-Search-Icon {
+  width: 14px !important;
+  height: 14px !important;
+  color: var(--vp-c-text-2) !important;
+}
+
+/* 暗色模式切换按钮 */
+.VPSwitchAppearance {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 32px !important;
+  height: 32px !important;
+  color: var(--vp-c-text-1) !important;
+}
+
+.VPSwitchAppearance:hover {
+  color: #FFFFFF !important;
+}
+
+/* 文章页面布局 */
+.VPDoc {
+  padding: 0 !important;
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+/* 导航栏容器 */
+.VPNavBar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100vw !important;
+  min-width: 100vw !important;
+  height: 64px !important;
+  background: var(--vp-nav-bg-color) !important;
+  backdrop-filter: blur(10px) !important;
+  border: none !important;
+  z-index: 100 !important;
+}
+
+.VPNavBarContent {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 32px !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* 文章内容容器 */
+.VPDoc .container {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 100% !important;
+  margin: 0 !important;
+  padding: 32px !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 48px !important;
+  box-sizing: border-box !important;
+}
+
+/* 文章主体内容 */
+.VPDoc .content {
+  width: 100% !important;
+  max-width: 800px !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex: 0 1 800px !important;
+}
+
+/* 侧边栏 */
+.VPDocAside {
+  position: sticky !important;
+  top: 80px !important;
+  width: 160px !important;
+  height: calc(100vh - 80px) !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  flex: 0 0 160px !important;
+  overflow-y: auto !important;
+}
+
+/* 确保内容区域不会溢出 */
+.VPDoc .aside + .content + .aside {
+  display: none !important;
+}
+
+/* 适配移动端 */
+@media (max-width: 768px) {
+  .VPNavBarContent {
+    padding: 0 16px !important;
+  }
+
+  .VPDoc .container {
+    padding: 16px !important;
+    flex-direction: column !important;
+  }
+
+  .VPDocAside {
+    display: none !important;
+  }
+
+  .VPDoc .content {
+    padding: 0 !important;
+  }
+}
+
+/* 主页样式 */
+.VPHomeHero {
+  padding: 8rem 0;
+  background: var(--vp-c-bg);
+  position: relative;
+  overflow: hidden;
+  font-family: 'CustomFont', sans-serif;
+}
+
+/* 主页标题和图片大小 */
+.VPHomeHero .text {
+  font-size: 3.5rem !important;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+.VPHomeHero .image {
+  width: 300px !important;
+  height: 300px !important;
+  margin: 0 auto;
+}
+
+.VPHomeHero .image-container {
+  transform: scale(1.2);
+}
+
+.VPHomeHero .container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.VPHomeHero .main {
+  margin-top: 4rem;
+  padding: 0 2rem;
+}
+
+/* 特性区域简化 */
+.VPFeatures {
+  padding: 6rem 0;
+  background: var(--vp-c-bg);
+  position: relative;
+}
+
+.VPFeatures .container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  gap: 4rem;
+  padding: 0 2rem;
+}
+
+.VPFeature {
+  background: none;
+  border: none;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.VPFeature:hover {
+  transform: translateY(-5px);
+}
+
+.VPFeature .icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.VPFeature .title {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--vp-c-text-1);
+}
+
+.VPFeature .details {
+  font-size: 1.1rem;
+  color: var(--vp-c-text-2);
+}
+
+/* 关于页字体 */
+.about-page {
+  font-family: 'CustomFont', sans-serif;
+}
+
+/* 水印图片 */
+.VPDoc::after {
+  content: '';
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 220px;
+  height: 220px;
+  background-image: url('/relax.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 主页不显示水印 */
+.VPHome .VPDoc::after {
+  display: none;
+}
+
+/* 主页按钮颜色 */
+.VPButton.brand {
+  background-color: var(--vp-nav-bg-color) !important;
+  border: none !important;
+  color: #ffffff !important;
+}
+
+.VPButton.brand:hover {
+  background-color: var(--vp-c-brand) !important;
+}

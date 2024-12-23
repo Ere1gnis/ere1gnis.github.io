@@ -1,12 +1,15 @@
 import DefaultTheme from 'vitepress/theme'
 import { Theme } from 'vitepress'
-import Layout from './layouts/Layout.vue'
-import './style.css'
+import './styles/custom.css'
+import Layout from './Layout.vue'
+import Tags from './components/Tags.vue'
+import PostList from './components/PostList.vue'
 
 export default {
   extends: DefaultTheme,
   Layout,
   enhanceApp({ app }) {
-    // 注册全局组件
+    app.component('Tags', Tags)
+    app.component('PostList', PostList)
   }
-} satisfies Theme 
+} as Theme 
