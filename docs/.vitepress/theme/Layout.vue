@@ -1,6 +1,7 @@
-<script setup>
+<script setup lang="ts">
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import NotFound from './NotFound.vue'
 
 const { Layout } = DefaultTheme
 const { frontmatter } = useData()
@@ -17,6 +18,10 @@ const { frontmatter } = useData()
         <VPNavBarSearch class="search" />
         <VPSwitchAppearance class="appearance" />
       </div>
+    </template>
+
+    <template #not-found>
+      <NotFound />
     </template>
   </Layout>
 </template>
