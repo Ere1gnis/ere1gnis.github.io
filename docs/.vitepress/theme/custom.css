@@ -1,0 +1,159 @@
+:root {
+  --vp-c-brand: var(--primary-blue);
+  --vp-c-brand-light: var(--dark-blue);
+  --vp-c-brand-lighter: var(--light-blue);
+  --vp-c-brand-dark: var(--dark-blue);
+  --vp-c-brand-darker: var(--dark-blue);
+
+  --primary-blue: #8CA3BA;
+  --dark-blue: #4A5B70;
+  --light-blue: #EEF2F6;
+  --coral: #FF7F7F;
+  --text-gray: #666;
+  --border-gray: #eee;
+}
+
+/* 顶栏样式 */
+.VPNav {
+  background-color: var(--primary-blue) !important;
+}
+
+.VPNavBar {
+  background-color: var(--primary-blue) !important;
+}
+
+.VPNavBar .content {
+  background-color: var(--primary-blue) !important;
+}
+
+/* 文字选中样式 */
+::selection {
+  background-color: var(--coral);
+  color: white;
+}
+
+/* 全局字体 */
+body {
+  font-family: 'CustomFont', sans-serif;
+}
+
+/* Logo动画 */
+.VPHomeHero .image-src {
+  width: 280px !important;
+  height: 280px !important;
+  animation: logoSway 3s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes logoSway {
+  0% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+  100% { transform: rotate(-5deg); }
+}
+
+/* 交互动画 */
+.VPButton {
+  transition: transform 0.2s ease, background-color 0.2s ease !important;
+}
+
+.VPButton:hover {
+  transform: translateY(-2px);
+}
+
+.VPFeature {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.VPFeature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* 导航链接动画 */
+.VPNavBarMenuLink {
+  position: relative;
+  color: white !important;
+}
+
+.VPNavBarMenuLink::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--coral);
+  transition: width 0.3s ease;
+}
+
+.VPNavBarMenuLink:hover::after {
+  width: 100%;
+}
+
+/* 标签样式 */
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  margin: 4px;
+  background-color: var(--light-blue);
+  color: var(--dark-blue);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  background-color: var(--coral);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* 自定义字体 */
+@font-face {
+  font-family: 'CustomFont';
+  src: url('/a.ttf') format('truetype');
+}
+
+/* 主页布局优化 */
+.VPHome {
+  background-color: white;
+}
+
+.VPHero {
+  padding: 80px 0;
+}
+
+.VPFeatures {
+  padding: 60px 0;
+  background-color: var(--light-blue);
+}
+
+.box {
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* 搜索框样式 */
+.DocSearch-Button {
+  background-color: rgba(255,255,255,0.1) !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+.DocSearch-Button:hover {
+  background-color: rgba(255,255,255,0.2) !important;
+  border-color: rgba(255,255,255,0.3) !important;
+}
+
+/* 深色模式适配 */
+.dark {
+  --vp-c-bg: #1a1a1a;
+  --vp-c-bg-soft: #242424;
+} 
