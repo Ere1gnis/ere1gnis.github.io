@@ -1,11 +1,25 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed } from 'vue'
 import { useData, useRouter } from 'vitepress'
 
-const { theme } = useData()
+const { site } = useData()
 const router = useRouter()
 const selectedTag = ref('')
-const posts = ref([])
+
+// 获取所有文章
+const posts = computed(() => {
+  const sidebarItems = site.value.themeConfig.sidebar['/posts/']?.[0]?.items || []
+  return sidebarItems.map(item => {
+    const path = item.link
+    const title = item.text
+    const tags = path.includes('老王胡诌') ? ['入世'] :
+                 path.includes('Untitled') ? ['后端'] :
+                 path.includes('hello-world') ? ['示例'] :
+                 path.includes('cluster') ? ['技术'] :
+                 []
+    return { title, path, tags }
+  })
+})
 
 // 获取所有标签
 const tags = computed(() => {
@@ -22,11 +36,6 @@ const tags = computed(() => {
 const filteredPosts = computed(() => {
   if (!selectedTag.value) return posts.value
   return posts.value.filter(post => post.tags?.includes(selectedTag.value))
-})
-
-onMounted(() => {
-  // 从主题配置中获取文章列表
-  posts.value = theme.value.posts || []
 })
 
 const selectTag = (tag) => {
@@ -60,7 +69,6 @@ const selectTag = (tag) => {
       >
         <h3 class="post-title">{{ post.title }}</h3>
         <div class="post-meta">
-          <span class="post-date">{{ new Date(post.date).toLocaleDateString() }}</span>
           <div class="post-tags">
             <span
               v-for="tag in post.tags"
@@ -80,6 +88,8 @@ const selectTag = (tag) => {
 <style scoped>
 .tags-container {
   padding: 2rem;
+  max-width: 1152px;
+  margin: 0 auto;
 }
 
 .tag-cloud {
@@ -146,11 +156,6 @@ const selectTag = (tag) => {
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-
-.post-date {
-  color: var(--text-gray);
-  font-size: 0.9rem;
 }
 
 .post-tags {

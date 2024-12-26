@@ -121,6 +121,9 @@ export default defineConfig({
     },
 
     // 最后更新时间文本
-    lastUpdatedText: '最后更新于'
+    lastUpdatedText: '最后更新于',
+
+    // 文章数据
+    posts
   }
 })
