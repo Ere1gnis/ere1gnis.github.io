@@ -114,7 +114,7 @@ export default defineConfig({
 
     // 编辑链接
     editLink: {
-      pattern: 'https://github.com/takamofu3n/takamofu3n.github.io',
+      pattern: 'https://github.com/Ere1gnis/ere1gnis.github.io/edit/master/docs/:path',
       text: '在 GitHub 上编辑此页'
     },
 

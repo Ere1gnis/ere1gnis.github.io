@@ -7,19 +7,9 @@ const router = useRouter()
 
 const posts = ref([])
 
-onMounted(async () => {
-  // 这里需要实现获取所有博客文章的逻辑
-  // 可以通过读取特定目录下的markdown文件来实现
-  // 示例数据结构
-  posts.value = [
-    {
-      title: '示例文章标题',
-      date: '2024-01-01',
-      tags: ['Vue', 'JavaScript'],
-      excerpt: '这是文章的摘要内容...',
-      path: '/posts/example'
-    }
-  ]
+onMounted(() => {
+  // 从theme配置中获取文章列表
+  posts.value = theme.value.posts || []
 })
 </script>
 
@@ -28,12 +18,11 @@ onMounted(async () => {
     <div v-for="post in posts" :key="post.path" class="post-item" @click="router.go(post.path)">
       <h3 class="post-title">{{ post.title }}</h3>
       <div class="post-meta">
-        <span class="post-date">{{ post.date }}</span>
+        <span class="post-date">{{ new Date(post.date).toLocaleDateString() }}</span>
         <div class="post-tags">
           <span v-for="tag in post.tags" :key="tag" class="tag">{{ tag }}</span>
         </div>
       </div>
-      <p class="post-excerpt">{{ post.excerpt }}</p>
     </div>
   </div>
 </template>
@@ -47,6 +36,13 @@ onMounted(async () => {
 
 .post-item {
   cursor: pointer;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.post-item:hover {
+  background-color: var(--vp-c-bg-soft);
 }
 
 .post-title {
@@ -73,9 +69,11 @@ onMounted(async () => {
   gap: 0.5rem;
 }
 
-.post-excerpt {
-  color: var(--vp-c-text-2);
-  font-size: 0.95rem;
-  line-height: 1.6;
+.tag {
+  background-color: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
 }
 </style> 
