@@ -43,25 +43,23 @@ body {
   height: 200px !important;
 }
 
-/* 导航链接动画 */
+/* 导航链接样式 */
 .VPNavBarMenuLink {
   position: relative;
   color: white !important;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
 }
 
+.VPNavBarMenuLink:hover {
+  background-color: white;
+  color: var(--dark-blue) !important;
+}
+
+/* 删除原来的下划线动画 */
 .VPNavBarMenuLink::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--coral);
-  transition: width 0.3s ease;
-}
-
-.VPNavBarMenuLink:hover::after {
-  width: 100%;
+  display: none;
 }
 
 /* 标签样式 */
@@ -120,14 +118,25 @@ body {
 
 /* 搜索框样式 */
 .DocSearch-Button {
-  background-color: rgba(255,255,255,0.1) !important;
-  border: 1px solid rgba(255,255,255,0.2) !important;
+  background-color: white !important;
+  border: none !important;
   transition: all 0.3s ease !important;
 }
 
+.DocSearch-Button-Placeholder {
+  color: var(--dark-blue) !important;
+}
+
+.DocSearch-Search-Icon {
+  color: var(--dark-blue) !important;
+}
+
+.DocSearch-Button-Keys {
+  display: none !important;
+}
+
 .DocSearch-Button:hover {
-  background-color: rgba(255,255,255,0.2) !important;
-  border-color: rgba(255,255,255,0.3) !important;
+  background-color: var(--light-blue) !important;
 }
 
 /* 深色模式适配 */
