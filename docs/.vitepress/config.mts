@@ -8,7 +8,7 @@ function getPosts() {
   const postsDir = join(__dirname, '../posts')
   const files = readdirSync(postsDir)
   const posts = files
-    .filter(file => file.endsWith('.md'))
+    .filter(file => file.endsWith('.md') && file !== 'index.md')
     .map(file => {
       const content = readFileSync(join(postsDir, file), 'utf-8')
       const { data } = matter(content)
@@ -23,6 +23,8 @@ function getPosts() {
 
   return posts
 }
+
+const posts = getPosts()
 
 export default defineConfig({
   // 站点基本配置
@@ -51,7 +53,7 @@ export default defineConfig({
       '/posts/': [
         {
           text: '最新文章',
-          items: getPosts().map(post => ({
+          items: posts.map(post => ({
             text: post.title,
             link: post.path
           }))
@@ -119,9 +121,6 @@ export default defineConfig({
     },
 
     // 最后更新时间文本
-    lastUpdatedText: '最后更新于',
-
-    // 文章数据
-    posts: getPosts()
+    lastUpdatedText: '最后更新于'
   }
 })

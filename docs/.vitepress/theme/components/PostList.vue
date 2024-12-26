@@ -2,14 +2,14 @@
 import { ref, onMounted } from 'vue'
 import { useData, useRouter } from 'vitepress'
 
-const { theme } = useData()
+const { site } = useData()
 const router = useRouter()
 
 const posts = ref([])
 
 onMounted(() => {
-  // 从theme配置中获取文章列表
-  posts.value = theme.value.posts || []
+  // 从customData中获取文章列表
+  posts.value = site.value.customData?.posts || []
 })
 </script>
 
